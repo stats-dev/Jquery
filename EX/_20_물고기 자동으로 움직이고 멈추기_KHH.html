@@ -1,0 +1,92 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>물고기 자동으로 움직이기</title>
+    <style>
+        body {
+            font-size: 9pt;
+        }
+
+        #panel {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #999;
+            position: relative;
+        }
+
+        #bar {
+            position: absolute;
+            left: 50px;
+            top: 190px;
+            width: 500px;
+            height: 20px;
+            background: #F30;
+        }
+
+        #fish {
+            position: absolute;
+            left: 50px;
+            top: 120px;
+        }
+
+        #nav {
+            text-align: center;
+            width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script src="js/jquery-3.7.0.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="panel">
+            <div id="bar"> </div>
+            <img src="images/fish1.png" id="fish">
+            <img src="images/fish2.png" id="fish2">
+        </div>
+        <div id="nav">
+            <button id="btnStart">
+                시작
+            </button>
+            <button id="btnStop">
+                멈춤
+            </button>
+        </div>
+    </div>
+    <script>
+        let cnt = 0;
+
+        $("#btnStart").on("click", () => {
+            const interv = setInterval(() => {
+
+                let currentPosition = $('#fish').position().left;
+                $('#fish').css('left', currentPosition + 50);
+                // cnt++;
+                if(currentPosition > 430 || currentPosition < 50) {
+
+                }
+    
+    
+            }, 300);
+
+        });
+        // 시작 버튼 클릭 시 호출되는 함수
+        // $('#btnStart').on("click", () => {
+        //     // 객체의 초기 위치 설정
+        //     var currentPosition = $('#fish').position();
+
+            
+        //     $('#fish').css('left', currentPosition + 50);
+            
+            
+        // }, 300);
+
+    </script>
+</body>
+
+</html>

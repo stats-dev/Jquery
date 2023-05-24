@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>attr()</title>
-     <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
 </head>
 <body>
     <ul>
@@ -16,7 +16,7 @@
             <a href="https://www.google.com">구글</a>
         </li>
         <li>
-            <a href="https://www.naver.com">다음</a>
+            <a href="https://www.daum.net">다음</a>
         </li>
     </ul>
     <script>
@@ -34,6 +34,8 @@
             $("a[href='https://www.daum.net']").attr("href", "https://www.daum.net").text("다음");
 
         }, 1000);
+
+        $("a[href='https://www.google.com']").removeAttr("href"); // 선택된 태그에 있는 href 속성을 삭제하게 된다.
     </script>
 </body>
 </html>
