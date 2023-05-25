@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click</title>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn1" type="button">왼쪽으로 이동</button>
+    <button id="btn2" type="button">오른쪽으로 이동</button>
+    <script>
+        // 시작하고 처음에 btn1 클릭시 자동으로 반복되게해라.
+        $("#btn1").on("click", () => {
+            // 왼쪽으로 300px 만큼 이동하는 애니메이션
+            $(".box").animate({
+                marginLeft: 300
+            }, 2000, () => {
+                $("#btn2").click();
+            });
+        });
+
+        $("#btn2").on("click", () => {
+            // 왼쪽 0으로 돌아오는 애니메이션
+            $(".box").animate({
+                marginLeft: 0
+            }, 2000, () => {
+                $("#btn1").click();
+            });
+        });
+
+        // // 시작하고 처음에 btn1 클릭시 자동으로 반복되게해라.
+        // $("#btn1").on("click", () => {
+        //     // 왼쪽으로 300px 만큼 이동하는 애니메이션
+        //     $(".box").animate({
+        //         marginLeft: "300px"
+        //     }, 1000, () => {
+        //         $("#btn2").click();
+        //     });
+        // });
+
+        // $("#btn2").on("click", () => {
+        //     // 왼쪽 0으로 돌아오는 애니메이션
+        //     $(".box").animate({
+        //         marginLeft: "0px"
+        //     }, 1000, () => {
+        //         $("#btn1").click();
+        //     });
+        // });
+
+        // const interval = setInterval(() => {
+        //     $("#btn1").click();
+        //     $("#btn2").click();
+        // }, 1000);
+    </script>
+</body>
+
+</html>

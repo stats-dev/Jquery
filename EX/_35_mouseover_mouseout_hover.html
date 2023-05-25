@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouseover/mouseout/hover</title>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        #box1 {
+            background-color: blue;
+        }
+
+        #box2 {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="panel">
+            <div id="bar"> </div>
+            <img src="images/fish1.png" id="fish">
+    </div>
+
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <script>
+        $("#fish").on("mouseover", () => {
+            $("#fish").animate({
+                marginLeft: "430px"
+            }, 2000, () => {
+                console.log("우측 이동 완료");
+                $("#fish").attr("src", "images/fish2.png");
+            })
+            .animate({
+                marginLeft: 0
+            }, 2000, () => {
+                console.log("좌측 이동 완료");
+                $("#fish").attr("src", "images/fish1.png");
+            })
+        });
+
+        $("#fish").on("mouseout", () => {
+            $("#fish").stop(() => {
+                console.log("멈춤");
+            });
+        })
+
+        $("#box1").on("mouseover", () => {
+            $("#box1").css("backgroundColor", "red");
+        });
+
+        $("#box1").on("mouseout", () => {
+            $("#box1").css("backgroundColor", "blue");
+        });
+
+        $("#box2").hover(
+            // 마우스 오버일 때
+            () => {
+                $("#box2").css("backgroundColor", "yellow");
+            },
+
+            // 마우스 아웃일 때
+            () => {
+                $("#box2").css("backgroundColor", "green");
+            });
+    </script>
+</body>
+</html>

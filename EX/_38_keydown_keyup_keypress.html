@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keydown()/keyup()/keypress()</title>
+    <script src="js/jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <label for="">
+            <input type="text" id="input1">
+        </label>
+    </div>
+    <div>
+        <label for="">
+            <input type="text" id="input2">
+        </label>
+    </div>
+    <div>
+        <label for="">
+            <input type="text" id="input3">
+        </label>
+    </div>
+    <script>
+        $("#input1").on("keydown", (e) => {
+            // e: 이벤트 객체
+            // 누른 키의 아스키코드를 가져온다.
+            // 실제로 눌린 키에 관심, 대소문자 구분 x
+            console.log(`keydown =====> ${typeof e.keyCode}`);
+            if(e.keyCode === 13) {
+                alert("엔터키 입력");
+            }
+        });
+
+        $("#input2").on("keypress", (e) => {
+            // keydown 눌린 키의 값
+            console.log(`keypress =====> ${e.keyCode}`);
+        });
+
+        $("#input3").on("keyup", (e) => {
+            console.log(`keyup =====> ${e.keyCode}`);
+        });
+    </script>
+</body>
+</html>
