@@ -21,6 +21,9 @@
             background-color: blue;
         }
 
+        .green {
+            background-color: green;
+        }
     </style>
 </head>
 <body>
@@ -30,16 +33,24 @@
         let cnt = 0;
 
         const interval = setInterval(() => {
-            isRed = !isRed; //플래그 줍니다.
+            // isRed = !isRed; //플래그 줍니다.
 
-            // 1초마다 무엇을 할까요?
-            if(isRed) {
-                $(".box").addClass("red").removeClass("blue");
+            // // 1초마다 무엇을 할까요?
+            // if(isRed) {
+            //     $(".box").addClass("red").removeClass("blue");
 
-                return;
+            //     return;
+            // }
+
+            // $(".box").addClass("blue").removeClass("red");
+            if(cnt % 3 == 0) {
+                $(".box").addClass("red").removeClass("blue").removeClass("green");
+            } else if(cnt % 3 == 1) {
+                $(".box").addClass("blue").removeClass("red").removeClass("green");
+            } else {
+                $(".box").addClass("green").removeClass("red").removeClass("blue");
+
             }
-
-            $(".box").addClass("blue").removeClass("red");
 
             cnt++;
             
